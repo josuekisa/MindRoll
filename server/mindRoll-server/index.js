@@ -4,10 +4,15 @@ require('dotenv').config();
 const config = require('./Config/config');
 
 
-app.get('/',(req,res)=>{
-res.send( 'hello world')
-})
+//Import Routes
+const sessions = require('./Routes/sessionRoute.js')
 
+//Definitions des Routes
+app.use(express.json())
+app.use('/', sessions);
+
+
+//Démarage serveur
 app.listen(config.port, ()=> {
     console.log(`le port sur ecoute est ${config.port}`)
 })
