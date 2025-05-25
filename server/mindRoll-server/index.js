@@ -10,6 +10,9 @@ const sessions = require('./Routes/sessionRoute.js')
 //Definitions des Routes
 app.use(express.json())
 app.use('/', sessions);
+app.get('/', (req, res) => {
+    res.send('MindRoll backend dispo');
+  });
 
 
 //Démarage serveur
