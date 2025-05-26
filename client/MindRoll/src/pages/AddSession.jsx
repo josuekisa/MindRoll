@@ -1,5 +1,6 @@
 
 import {useState,React} from 'react'
+import axios from 'axios'
 
 
 
@@ -9,17 +10,28 @@ const AddSession = () => {
     const [formData,setFormData] = useState({
         date:'',
         duree:'',
-        Type:'',
+        type:'',
         note:'',
-        soumisison:''
+        soumissionsReussies:''
     
     })
-    const handleChange = () => {
-     setFormData([...formData,
-        [e.target.name],e.target.value
-     ])
+    const handleChange = (e) => {
+     setFormData({...formData,
+        [e.target.name]:e.target.value
+     } )
     }
-  
+  const handleSubmit = (e)=>{
+     console.log(formData)
+    axios.post('http://localhost:5000/sessions',formData)
+    .then(function(res){
+        console.log(res.data)
+    })
+    .catch(function(error){
+        console.log("j'ai pas reussi a récuperer les données")
+    })
+    e.preventDefault()
+    console.log(formData)
+  }
     return (
    
    
@@ -31,6 +43,7 @@ const AddSession = () => {
        <div className='flex items-center py-3'>
         <label htmlFor="">Date</label>
         <input  className='bg-gray-200'
+        name='date'
         type="date"
         value={formData.date} 
         onChange={handleChange}
@@ -40,7 +53,9 @@ const AddSession = () => {
         <div>
             <label htmlFor="">Durée</label>
             <input  className='bg-gray-200'
+            name='duree'
         type="number" 
+          value={formData.duree} 
         onChange={handleChange}/>
        
         </div>
@@ -49,7 +64,9 @@ const AddSession = () => {
         <div>
             <label htmlFor="">Type</label>
             <input  className='bg-gray-200'
-        type="select" 
+       name='type'
+       type="select" 
+          value={formData.type} 
         onChange={handleChange}/>
   
         </div>
@@ -58,7 +75,9 @@ const AddSession = () => {
         <div>
             <label htmlFor="">Note</label>
             <input  className='bg-gray-200'
+            name='note'
         type="number" 
+          value={formData.note} 
         onChange={handleChange}/>
         </div>
 
@@ -66,11 +85,13 @@ const AddSession = () => {
         <div>
             <label htmlFor="">Soumission </label>
             <input  className='bg-gray-200'
+            name='soumissionsReussies'
         type="textarea" 
+          value={formData.soumissionsReussies} 
         onChange={handleChange}/>
         </div>
         <div className="py-3 text-center">
-            <button className="rounded-lg p-2 bg-gray-700">Envoyer</button>
+            <button onClick={handleSubmit} className="rounded-lg p-2 bg-gray-700">Envoyer</button>
         </div>
       </form>
 
