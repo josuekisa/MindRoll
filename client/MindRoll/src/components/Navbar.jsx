@@ -9,8 +9,8 @@ const Navbar = () => {
         <div >
             <ul  className='flex flex-row gap-3 justify-center'>
                 <Link to={'/'}>Accueil</Link>
-                <Link to='/addSession'>Ajout sessions</Link>
-                <Link>Ancienes seances</Link>
+                <Link to={'/addSession'}>Ajout sessions</Link>
+                <Link to={'/sessionList'}>Listes seances</Link>
                 <Link>Progression</Link>
             </ul>
         </div>
