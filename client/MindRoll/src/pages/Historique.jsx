@@ -6,7 +6,7 @@ import axios from 'axios'
 const Historique = () => {
  
 const [storage,setStorage]= useState([]);
-const [date,setDate]= useState([]);
+const [fill, setFill]= useState('');
    
 useEffect(()=>{
 axios.get('http://localhost:3000/sessions')
@@ -26,11 +26,19 @@ const handleDate = () =>{
     date.sort((a,b) => new Date(a.date)-new Date(b.date))
     setStorage(date)
 }
+const handleFilter = () => {
+    const filtred = fill.filter((filtred)=> filtred.type && filtred.note  )
+    setFill(filtred)
+}
+
+const handleInput = (e) => {
+    setFill(e.target.value)
+}
     return (
     <div className='flex flex-col justify-center items-center'>
        
             <label className='text-center ' htmlFor="recherche">Recherche D'une seance</label>
-            <input className='bg-gray-100' type="text" />
+            <input value={fill} onChange={handleFilter} className='bg-gray-100' type="text" />
         
        <ul className=''>
         {storage.map((item)=>(
