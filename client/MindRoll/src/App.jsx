@@ -31,7 +31,7 @@ function App() {
       </Route>
       <Route path='/AddSession' element={<AddSession />}></Route>
       <Route path='/sessionList' element={<SessionList />}></Route>
-      <Route path='/sessionList' element={<SessionList />}></Route>
+      <Route path='/Historique' element={<Historique />}></Route>
      </Routes>
 
      </BrowserRouter>

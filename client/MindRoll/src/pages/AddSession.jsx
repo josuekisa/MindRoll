@@ -22,7 +22,7 @@ const AddSession = () => {
     }
   const handleSubmit = (e)=>{
      console.log(formData)
-    axios.post('http://localhost:5000/sessions',formData)
+    axios.post('http://localhost:3000/sessions',formData)
     .then(function(res){
         console.log(res.data)
     })

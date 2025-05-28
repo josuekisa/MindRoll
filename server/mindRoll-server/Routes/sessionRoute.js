@@ -1,6 +1,8 @@
 const express = require('express');
 const sessions = require('../Data/sessions.json')
 const Router = express.Router()
+const { v4: uuidv4 } = require('uuid');
+
 
 Router.get('/sessions',(req,res)=>{
    console.log(sessions)
@@ -9,7 +11,7 @@ Router.get('/sessions',(req,res)=>{
 
 Router.post('/sessions',(req,res)=>{
     const newSession = {
-    id: req.body.id,
+    id: uuidv4(),
     date: req.body.date,
     duree:req.body.duree,
     type: req.body.type,
