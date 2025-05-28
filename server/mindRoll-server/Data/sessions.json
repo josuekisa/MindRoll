@@ -13,5 +13,22 @@
 "type": "Sparring lourd",
 "note": 7,
 "soumissionsReussies": "clé de coude"
+},
+{
+"id":3,
+"date": "23-05-2025",
+"duree" :"90",
+"type": "Sparring lourd",
+"note": 7,
+"soumissionsReussies": "clé de coude"
+}
+,
+{
+"id":4,
+"date": "23-05-2025",
+"duree" :"90",
+"type": "Sparring lourd",
+"note": 7,
+"soumissionsReussies": "clé de coude"
 }
 ]

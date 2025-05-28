@@ -20,12 +20,16 @@ Router.post('/sessions',(req,res)=>{
 
 })
 
-Router.delete('/session/:id',(req,res)=>{
+Router.delete('/sessions/:id',(req,res)=>{
     const index = sessions.findIndex(session => session.id == req.params.id);
-
+    
+    if(index === -1){
+        return res.status(404).json({eror:"session non trouvée"});
+       
+    }
 
     
-    sessions.splice(index)
+    sessions.splice(index,1)
     res.json('id supprimer')
 }) 
 module.exports = Router

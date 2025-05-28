@@ -4,6 +4,8 @@ import { Routes, BrowserRouter, Route } from "react-router"
 import AddSession from './pages/AddSession'
 import Homepage from './pages/Homepage'
 import SessionList from './pages/SessionList'
+import Historique from './pages/Historique'
+
 
 
 
@@ -28,6 +30,7 @@ function App() {
 
       </Route>
       <Route path='/AddSession' element={<AddSession />}></Route>
+      <Route path='/sessionList' element={<SessionList />}></Route>
       <Route path='/sessionList' element={<SessionList />}></Route>
      </Routes>
 
