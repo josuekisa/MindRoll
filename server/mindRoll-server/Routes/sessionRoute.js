@@ -19,4 +19,13 @@ Router.post('/sessions',(req,res)=>{
     res.json(newSession)
 
 })
+
+Router.delete('/session/:id',(req,res)=>{
+    const index = sessions.findIndex(session => session.id == req.params.id);
+
+
+    
+    sessions.splice(index)
+    res.json('id supprimer')
+}) 
 module.exports = Router

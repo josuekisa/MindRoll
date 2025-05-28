@@ -5,4 +5,13 @@
     "type": "Sparring leger",
     "note": 4,
     "soumissionsReussies": "clé de bras"
-}]
+},
+{
+"id":2,
+"date": "23-05-2025",
+"duree" :"90",
+"type": "Sparring lourd",
+"note": 7,
+"soumissionsReussies": "clé de coude"
+}
+]

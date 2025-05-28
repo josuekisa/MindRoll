@@ -14,6 +14,7 @@ const sessions = require('./Routes/sessionRoute.js')
 app.use(express.json())
 app.use(cors());
 app.use('/', sessions);
+app.use('/',sessions)
 
 app.get('/', (req, res) => {
     res.send('MindRoll backend dispo');
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 
 
 //Démarage serveur
-app.listen(config.port, ()=> {
+
+app.listen(config.port,'0.0.0.0', ()=> {
     console.log(`le port sur ecoute est ${config.port}`)
 })
