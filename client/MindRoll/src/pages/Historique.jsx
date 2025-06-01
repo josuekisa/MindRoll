@@ -7,6 +7,7 @@ const Historique = () => {
  
 const [storage,setStorage]= useState([]);
 const [fill, setFill]= useState('');
+const [filteredStorage, setFilteredStorage] = useState([]);
    
 useEffect(()=>{
 axios.get('http://localhost:3000/sessions')
@@ -18,19 +19,29 @@ axios.get('http://localhost:3000/sessions')
  .catch(function(res){
     console.log("j'arrive pas a avoir acces au seances")
  })
-
 },[])
+
+useEffect(()=>{
+    const filtered = storage.filter((session) =>
+    session.type.toLowerCase().includes(fill.toLowerCase()) ||
+    session.note.toString().includes(fill)
+  );
+  setStorage(filtered);
+},[fill,storage])
 
 const handleDate = () =>{
     const date = [...storage]
     date.sort((a,b) => new Date(a.date)-new Date(b.date))
     setStorage(date)
 }
-const handleFilter = () => {
-    const filtred = fill.filter((filtred)=> filtred.type && filtred.note  )
-    setFill(filtred)
-}
-
+/*const handleFilter = () => {
+    const filtered = storage.filter((session) =>
+      session.type.toLowerCase().includes(fill.toLowerCase()) ||
+      session.note.toString().includes(fill)
+    );
+    setStorage(filtered);
+  };
+*/
 const handleInput = (e) => {
     setFill(e.target.value)
 }
@@ -38,7 +49,7 @@ const handleInput = (e) => {
     <div className='flex flex-col justify-center items-center'>
        
             <label className='text-center ' htmlFor="recherche">Recherche D'une seance</label>
-            <input value={fill} onChange={handleFilter} className='bg-gray-100' type="text" />
+            <input value={handleInput} onChange={handleFilter} className='bg-gray-100' type="text" />
         
        <ul className=''>
         {storage.map((item)=>(
