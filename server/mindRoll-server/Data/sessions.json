@@ -1,34 +1,34 @@
-[{
-    "id":1,
+[
+  {
+    "id": 1,
     "date": "2025-05-05",
-    "duree" :"90",
+    "duree": "90",
     "type": "Sparring leger",
     "note": 4,
     "soumissionsReussies": "clé de bras"
-},
-{
-"id":2,
-"date": "2025-05-06",
-"duree" :"90",
-"type": "Sparring lourd",
-"note": 7,
-"soumissionsReussies": "clé de coude"
-},
-{
-"id":3,
-"date": "2025-05-02",
-"duree" :"90",
-"type": "Sparring lourd",
-"note": 7,
-"soumissionsReussies": "clé de coude"
-}
-,
-{
-"id":4,
-"date": "2025-05-03",
-"duree" :"90",
-"type": "Sparring lourd",
-"note": 7,
-"soumissionsReussies": "clé de coude"
-}
+  },
+  {
+    "id": 2,
+    "date": "2025-05-06",
+    "duree": "90",
+    "type": "Sparring lourd",
+    "note": 7,
+    "soumissionsReussies": "clé de coude"
+  },
+  {
+    "id": 3,
+    "date": "2025-05-02",
+    "duree": "90",
+    "type": "Sparring lourd",
+    "note": 7,
+    "soumissionsReussies": "clé de coude"
+  },
+  {
+    "id": 4,
+    "date": "2025-05-03",
+    "duree": "90",
+    "type": "Sparring lourd",
+    "note": 7,
+    "soumissionsReussies": "clé de coude"
+  }
 ]
