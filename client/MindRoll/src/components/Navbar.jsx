@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className="">
       <div className=" flex flex-row gap-3 justify-between">
-        {/** Logo*/}
+        {/** Logo */}
         <div>
           <p>LOGOS</p>
         </div>

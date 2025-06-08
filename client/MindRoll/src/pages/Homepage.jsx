@@ -1,5 +1,6 @@
 import React from "react";
 import bg from "../assets/JJB-Training.jpeg";
+import Navbar from "../components/Navbar";
 
 const Homepage = () => {
   return (
