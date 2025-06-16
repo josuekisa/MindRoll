@@ -21,7 +21,6 @@ const Navbar = () => {
           <Link to={"/"}>Accueil</Link>
           <Link to={"/addSession"}>Ajout sessions</Link>
           <Link to={"/sessionList"}>Listes seances</Link>
-          <Link to={"/Historique"}>Historique</Link>
           <Link>Progression</Link>
         </ul>
         {/** burger */}

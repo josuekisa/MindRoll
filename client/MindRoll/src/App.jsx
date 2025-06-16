@@ -4,6 +4,8 @@ import Homepage from "./pages/Homepage";
 import SessionList from "./pages/SessionList";
 import Historique from "./pages/Historique";
 import Layout from "./layout/Layout";
+import { Register } from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path="/AddSession" element={<AddSession />} />
           <Route path="/sessionList" element={<SessionList />} />
           <Route path="/Historique" element={<Historique />} />
+          <Route path="/Register" element={<Register />} />
+          <Route path="/Login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>

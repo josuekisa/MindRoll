@@ -33,7 +33,10 @@ const AddSession = () => {
     >
       <h1 className="text-3xl py-3 ">Ajout D'une séance </h1>
 
-      <form className=" bg-black/80  inset-0   rounded-lg  h-auto w-xl p-8">
+      <form
+        className=" bg-black/80  inset-0   rounded-lg  h-auto w-sm
+       md:w-xl p-8"
+      >
         {/**date */}
         <div className="flex flex-col  py-3">
           <label className="py-2" htmlFor="">
