@@ -22,6 +22,7 @@ const sessionRoutes = require("./Routes/sessionRoute.js");
 
 //Définitions des Routes
 app.use("/sessions", sessionRoutes);
+app.use("/", sessionRoutes);
 
 app.get("/", (req, res) => {
   res.send("MindRoll backend dispo");

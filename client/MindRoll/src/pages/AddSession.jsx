@@ -27,14 +27,11 @@ const AddSession = () => {
     console.log(formData);
   };
   return (
-    <div
-      style={{ backgroundImage: `url(${wp})` }}
-      className=" relative flex flex-col justify-center items-center py-7  text-gray-50 bg-yellow-300 h-screen bg-center bg-cover bg-no-repeat"
-    >
+    <div className=" relative bg-gradient-to-b from-black to-gray-800  flex flex-col justify-center items-center py-7  text-gray-50 bg-yellow-300 h-screen bg-center bg-cover bg-no-repeat">
       <h1 className="text-3xl py-3 ">Ajout D'une séance </h1>
 
       <form
-        className=" bg-black/80  inset-0   rounded-lg  h-auto w-sm
+        className=" bg-gradient-to-b from-gray-800 to-black  inset-0   rounded-lg  h-auto w-sm
        md:w-xl p-8"
       >
         {/**date */}

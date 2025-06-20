@@ -2,10 +2,7 @@ import React from "react";
 import bg from "../assets/JJB-Training.jpeg";
 const Login = () => {
   return (
-    <div
-      className="  h-screen w-screen flex  justify-center items-center   bg-cover bg-center bg-no-repeat  bg-fixed "
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+    <div className=" bg-gradient-to-b from-black to-gray-800  h-screen w-screen flex  justify-center items-center  ">
       <div className=" flex flex-col items-center justify-center text-gray-50 inset-0 bg-black w-96 h-96">
         <h1 className="font-bold text-2xl">S'identifier</h1>
         <div className="flex flex-col items-center space-y-3  p-3">

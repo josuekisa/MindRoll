@@ -10,20 +10,6 @@ const Homepage = () => {
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className=" absolute bg-black/70 inset-0 flex flex-col ">
-        <div className="flex justify-end items-end text-gray-50 space-x-4 py-4 mr-3">
-          <Link
-            to={"/Login"}
-            className="border border-indigo-700 bg-black/50 p-3"
-          >
-            Se connecter{" "}
-          </Link>
-          <Link
-            to={"/register"}
-            className="border border-indigo-700 bg-black/50 p-3"
-          >
-            S'enregistrer{" "}
-          </Link>
-        </div>
         <div className="flex flex-col items-center justify-center flex-1">
           <div className=" flex flex-col justify-center items-center font-sans   ">
             <h1 className="text-4xl md:text-7xl font-bold text-gray-50">
