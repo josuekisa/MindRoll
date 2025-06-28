@@ -47,4 +47,25 @@ Router.delete("/sessions/:id", async (req, res) => {
   res.send(sessionDelete);
 });
 
+//put endpoint
+Router.put("/sessions/:id", async (req, res) => {
+  try {
+    const sessionUpdate = await session.findByIdAndUpdate(
+      req.params.id,
+      {
+        date: req.body.date,
+        duree: req.body.duree,
+        type: req.body.type,
+        note: req.body.note,
+        soumissionsReussies: req.body.soumissionsReussies,
+      },
+      { new: true }
+    );
+    res.send(sessionUpdate);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "erreur 500" });
+  }
+});
+
 module.exports = Router;
