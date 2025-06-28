@@ -3,10 +3,16 @@ import axios from "axios";
 import { MdDeleteForever, MdOutlineDeleteForever } from "react-icons/md";
 import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 const SessionList = () => {
   const [list, setList] = useState([]);
   const [toogle, setToogle] = useState(true);
+  const [listInput, setListInput] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 4;
   useEffect(() => {
     axios
       .get("http://localhost:3000/sessions")
@@ -49,6 +55,43 @@ const SessionList = () => {
     toogle ? handleSortDesc() : handleSortAsc();
     setToogle(!toogle);
   };
+  const handlePageClick = (e) => {
+    setCurrentPage(e.selected);
+  };
+
+  const Offset = currentPage * itemsPerPage;
+  const currentItems = list.slice(Offset, Offset + itemsPerPage);
+
+  const PageCount = Math.ceil(list.length / itemsPerPage);
+  const modalConfirmation = () => {
+    return (
+      <div className="fixed flex items-center justify-center top-0 right-0 bg-black opacity-75 h-full w-full z-51">
+        <div className=" flex flex-col items-center text-black space-y-3 bg-gray-300  w-96">
+          <h1>Supprimer La séance ?</h1>
+          <h2>Voulez vous vraiment supprimer la seance </h2>
+          <div className="grid grid-cols-2 text-amber-50 ">
+            <button
+              onClick={() => setShowModal(false)}
+              className="p-4 bg-gray-600"
+            >
+              {" "}
+              Annuler
+            </button>
+
+            <button
+              className="p-4 bg-red-600"
+              onClick={() => {
+                handleDelete(selectedId);
+              }}
+            >
+              {" "}
+              Supprimer
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
   return (
     <div className="bg-gradient-to-b from-black to-gray-800  min-h-screen text-gray-50 py-10 px-4">
       <div className="max-w-screen-xl mx-auto">
@@ -62,9 +105,10 @@ const SessionList = () => {
             Ajout session
           </Link>
         </div>
+        <div></div>
 
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {list.map((item) => (
+          {currentItems.map((item) => (
             <li key={item._id}>
               <div className="bg-gray-800 rounded-2xl shadow-md p-5 hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col justify-between h-full">
                 <div className="space-y-2 text-lg">
@@ -74,7 +118,10 @@ const SessionList = () => {
                   <p className="text-blue-400">🧠 Note : {item.note}</p>
                 </div>
                 <button
-                  onClick={() => handleDelete(item._id)}
+                  onClick={() => {
+                    setSelectedId(item._id);
+                    setShowModal(true);
+                  }}
                   className="self-end mt-4 hover:text-red-600 transition"
                 >
                   <MdOutlineDeleteForever className="text-red-500 text-2xl" />
@@ -89,6 +136,17 @@ const SessionList = () => {
         >
           {toogle ? "tri desc" : "tri asc"}
         </button>
+        <div className="flex gap-5 justify-center">
+          <ReactPaginate
+            pageCount={PageCount}
+            onPageChange={handlePageClick}
+            previousLabel="Pre"
+            nextLabel="Next"
+            containerClassName="pagination"
+            activeClassName="active"
+          />
+        </div>
+        {showModal && modalConfirmation()}
       </div>
     </div>
   );
