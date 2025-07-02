@@ -6,6 +6,7 @@ import Historique from "./pages/Historique";
 import Layout from "./layout/Layout";
 import { Register } from "./pages/Register";
 import Login from "./pages/Login";
+import Progression from "./pages/Progression";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/Historique" element={<Historique />} />
           <Route path="/Register" element={<Register />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Progression" element={<Progression />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
