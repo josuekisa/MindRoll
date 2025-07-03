@@ -7,23 +7,27 @@ import Layout from "./layout/Layout";
 import { Register } from "./pages/Register";
 import Login from "./pages/Login";
 import Progression from "./pages/Progression";
+import { sessionContext } from "./components/SessionContext";
+import { useState } from "react";
 
 function App() {
+  const [list, setList] = useState([]);
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          {/* Toutes les routes qui ont le Navbar passent ici */}
-          <Route path="/" element={<Homepage />} />
-          <Route path="/AddSession" element={<AddSession />} />
-          <Route path="/sessionList" element={<SessionList />} />
-          <Route path="/Historique" element={<Historique />} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Progression" element={<Progression />}></Route>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <sessionContext.Provider value={{ list, setList }}>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/AddSession" element={<AddSession />} />
+            <Route path="/sessionList" element={<SessionList />} />
+            <Route path="/Progression" element={<Progression />} />
+            <Route path="/Historique" element={<Historique />} />
+            <Route path="/Register" element={<Register />} />
+            <Route path="/Login" element={<Login />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </sessionContext.Provider>
   );
 }
 

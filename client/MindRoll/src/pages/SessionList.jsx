@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { FaPlus, FaRegPenToSquare } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
+import { sessionContext } from "../components/SessionContext";
 
 const SessionList = () => {
-  const [list, setList] = useState([]);
+  const { list, setList } = useContext(sessionContext);
   const [toogle, setToogle] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [selectedId, setSelectedId] = useState(null);

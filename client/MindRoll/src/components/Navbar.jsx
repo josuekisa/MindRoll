@@ -62,7 +62,7 @@ const Navbar = () => {
           <Link to="/addSession">Ajout sessions</Link>
           <Link to="/sessionList">Listes séances</Link>
           <Link to="/Historique">Historique</Link>
-          <Link>Progression</Link>
+          <Link to="/Progression">Progression</Link>
         </div>
       )}
     </div>
