@@ -9,9 +9,13 @@ import Login from "./pages/Login";
 import Progression from "./pages/Progression";
 import { sessionContext } from "./components/SessionContext";
 import { useState } from "react";
+import BarChart from "./components/BarChart";
 
 function App() {
   const [list, setList] = useState([]);
+  const [chartData, setChartData] = useState({
+    // ...chart data
+  });
   return (
     <sessionContext.Provider value={{ list, setList }}>
       <BrowserRouter>
@@ -20,7 +24,7 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/AddSession" element={<AddSession />} />
             <Route path="/sessionList" element={<SessionList />} />
-            <Route path="/Progression" element={<Progression />} />
+            <Route path="/Progression" element={<BarChart />} />
             <Route path="/Historique" element={<Historique />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/Login" element={<Login />} />

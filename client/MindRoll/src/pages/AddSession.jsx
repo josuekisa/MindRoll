@@ -10,6 +10,8 @@ const AddSession = () => {
     note: "",
     soumissionsReussies: "",
   });
+
+  const [showModal, setShowModal] = useState(false);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -19,12 +21,32 @@ const AddSession = () => {
       .post("http://localhost:3000/sessions", formData)
       .then(function (res) {
         console.log(res.data);
+        setShowModal(!showModal);
+        e.preventDefault();
       })
       .catch(function (error) {
-        console.log("j'ai pas reussi a récuperer les données");
+        console.log("j'ai pas reussi a envoyer les données");
       });
     e.preventDefault();
     console.log(formData);
+  };
+
+  const modalConfirmation = () => {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-100 ">
+        <div className="bg-white text-black rounded p-7 space-y-4 w-80 ">
+          <div className=" text-center space-y-3 ">
+            <h2> La seance a été cree avec succes</h2>
+            <button
+              onClick={() => setShowModal(!showModal)}
+              className="bg-red-600 px-4 py-2 rounded text-white"
+            >
+              Retour
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   };
   return (
     <div className=" relative bg-gradient-to-b from-black to-gray-800  flex flex-col justify-center items-center py-7  text-gray-50 bg-yellow-300 h-screen bg-center bg-cover bg-no-repeat">
@@ -108,6 +130,7 @@ const AddSession = () => {
           </button>
         </div>
       </form>
+      {showModal && modalConfirmation()}
     </div>
   );
 };
