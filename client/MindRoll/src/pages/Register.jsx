@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../assets/JJB-Training.jpeg";
+import bg from "../assets/JJB-Training.JPEG";
 export const Register = () => {
   return (
     <div

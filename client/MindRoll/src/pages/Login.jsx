@@ -1,5 +1,5 @@
 import React from "react";
-import bg from "../assets/JJB-Training.jpeg";
+import bg from "../assets/JJB-Training.JPEG";
 const Login = () => {
   return (
     <div className=" bg-gradient-to-b from-black to-gray-800  h-screen w-screen flex  justify-center items-center  ">
